@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: callback-vs
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - http-gateway
+  http:
+  - match:
+    - uri:
+        exact: /abhishekk/callback
+    route:
+    - destination:
+        host: oauth2-callback-service.default.svc.cluster.local
+        port:
+          number: 80
