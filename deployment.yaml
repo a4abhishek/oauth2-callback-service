@@ -1,17 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: callback-app
+  name: oauth2-callback-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: callback-app
+      app: oauth2-callback-app
   template:
     metadata:
       labels:
-        app: callback-app
+        app: oauth2-callback-app
     spec:
       containers:
       - name: callback-app
         image: abhishekkashyap/callback-app:latest
+        imagePullPolicy: IfNotPresent
